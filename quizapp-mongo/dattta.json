@@ -1,0 +1,112 @@
+[
+    {
+        "id":"1",
+        "q":"Atomic number of Hydrogen",
+        "option":{
+            "a":"1",
+            "b":"2",
+            "c":"3",
+            "d":"4"
+        },
+        "ans":"1"
+    },
+    {
+        "id":"2",
+        "q":"Atomic number of Carbon",
+        "option":{
+            "a":"1",
+            "b":"2",
+            "c":"3",
+            "d":"6"
+        },
+        "ans":"6"
+    },
+    {
+        "id":"3",
+        "q":"what is 9+1",
+        "option":{
+            "a":"10",
+            "b":"2",
+            "c":"ten",
+            "d":"41"
+        },
+        "ans":"10"
+    },
+    {
+        "id":"4",
+        "q":"Atomic number of uranium",
+        "option":{
+            "a":"91",
+            "b":"92",
+            "c":"3",
+            "d":"40"
+        },
+        "ans":"92"
+    },
+    {
+        "id":"5",
+        "q":"Atomic number of Lead",
+        "option":{
+            "a":"114",
+            "b":"82",
+            "c":"34",
+            "d":"94"
+        },
+        "ans":"82"
+    },
+    {
+        "id":"6",
+        "q":"_______ is the smallest unit of data in a computer ?",
+        "option":{
+            "a":"bit",
+            "b":"byte",
+            "c":"GigaByte",
+            "d":"TeraByte"
+        },
+        "ans":"bit"
+    },
+    {
+        "id":"7",
+        "q":"Which of the following is NOT an anti-virus software",
+        "option":{
+            "a":"Avast",
+            "b":"Linux",
+            "c":"Norton",
+            "d":"Kaspersky"
+        },
+        "ans":"Linux"
+    },
+    {
+        "id":"8",
+        "q":"In the context of digital computer, which of the following pairs of digits is referred to as binary code",
+        "option":{
+            "a":"1 and 2",
+            "b":"0 and 1",
+            "c":"1 and 2",
+            "d":"3 and 4"
+        },
+        "ans":"0 and 1"
+    },
+    {
+        "id":"9",
+        "q":"Which unit of the computer is considered as the brain of the computer ?",
+        "option":{
+            "a":"Memory Unit",
+            "b":"Input Unit",
+            "c":"CPU",
+            "d":"Output Unit"
+        },
+        "ans":"CPU"
+    },
+    {
+        "id":"10",
+        "q":"In the context of computing, what is the full form of URL ?",
+        "option":{
+            "a":"Undistributed Resource Locator",
+            "b":"Unified Resource Locator",
+            "c":"Uniform Resource Locator",
+            "d":"Uniform Region Locator"
+        },
+        "ans":"Uniform Resource Locator"
+    }
+]

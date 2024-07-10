@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(56, 54, 54);
+        }
+
+        .answer {
+            display: none;
+        }
+
+        .iiid {
+            display: none;
+        }
+
+        .q {
+            /* background-color: rgb(219, 56, 56); */
+            background-color: #f5efef;
+            font-size: 20px;
+            padding: 5px 0 5px 40px;
+            margin: 5px 200px 5px 200px;
+            border-radius: 20px;
+            color: #000000;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .sub {
+            margin-left: 200px;
+            margin-top: 20px;
+            height: 50px;
+            width: 150px;
+            border-radius: 10px;
+            border: none;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .sub:hover {
+            background-color: rgb(94, 94, 95);
+            transition: 1s;
+            width: 200px;
+            color: #ffffff;
+            transition: width 2s;
+        }
+
+        .iiid {
+            font-size: 50px;
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="question">
+
+        <% for (let i=0; i < b.length; i++) { %>
+            <% const element=b[i]; %>
+
+                <div class="q">
+
+                    <h3>
+                        <%= element.q %>
+                    </h3>
+                    <h5><input type="radio" name=<%=i %> class = "onne" value = <%= element.option.a %> id=<%= element.option.a %>><%=
+                                element.option.a %>
+                    </h5>
+                    <h5><input type="radio" name=<%=i %> class = "onne" value = <%= element.option.b %> id=<%= element.option.b %>><%=
+                                element.option.b %>
+                    </h5>
+                    <h5><input type="radio" name=<%=i %> class = "onne" value = <%= element.option.c %> id=<%= element.option.c %>><%=
+                                element.option.c %>
+                    </h5>
+                    <h5><input type="radio" name=<%=i %> class = "onne" value = <%= element.option.d %> id=<%= element.option.d %>><%=
+                                element.option.d %>
+                    </h5>
+                    <div class="answer">
+                        <%= fileName %>
+                    </div>
+                    <div class="iiid">
+                        <%=b[i].id%>
+                    </div>
+                </div>
+
+                <% } %>
+
+    </div>
+    <button onclick="show(this)" class="sub">SUBMIT</button>
+    <script>
+        function show(event) {
+            let n = event.previousElementSibling.children;
+            let myId;
+            let v = [];
+            let myAnswer = [];
+            let total = n.length;
+            let myFile = n[0].children[5].textContent;
+            // console.log(document.querySelector(`input[name="${0}"]:checked`).value);
+           
+            for (let i = 0; i < n.length; i++) {
+                v[i] = document.querySelector(`input[name="${i}"]:checked`);
+            }
+            console.log("1",v);
+            for (let i = 0; i < v.length; i++) {
+                let answer;
+                let iiid = n[i].children[6].textContent;
+                myId = iiid.trim();
+                if (v[i] != null) {
+                    // answer = v[i].value;
+                    answer = v[i].parentElement.innerText;
+                }
+                else {
+                    answer = null;
+                }
+                let object = {
+                    id: myId,
+                    answer: answer
+                }
+                myAnswer.push(object);
+            }
+            
+            console.log(myAnswer);
+            let file = myFile.trim()
+            let obj = {
+                score: myAnswer,
+                myFile: file.trim(),
+                total: total
+            }
+            let opt = {
+                method: 'POST',
+                headers: {
+                    'content-Type': 'application/json',
+                },
+                body: JSON.stringify(obj)
+            }
+            // console.log(obj.score);
+            fetch("/score", opt).then((response) =>
+                response.json()).then((result) => {
+                    if(result.status == 200)
+                    {
+                        window.location.href = `/abc?file=${file}`;
+                    }
+                })
+        }
+        // console.log(response.json().promiseResult);
+        // console.log(JSON.stringify(response));
+        // window.location.href = `/abc`;
+
+    </script>
+</body>
+
+</html>
